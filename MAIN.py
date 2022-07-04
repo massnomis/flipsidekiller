@@ -42,8 +42,8 @@ st.write(
     os.environ["API_KEY"] == st.secrets["API_KEY"],
 )
 
-
-
+API_KEY = os.environ["API_KEY"]
+API_KEY = st.secrets["API_KEY"]
 
 
 
