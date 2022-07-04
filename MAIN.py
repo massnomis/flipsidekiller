@@ -22,6 +22,31 @@ import streamlit as st
 from streamlit_pandas_profiling import st_profile_report
 
 st.set_page_config(layout="wide")
+
+
+
+
+import streamlit as st
+
+# Everything is accessible via the st.secrets dict:
+
+st.write("API_KEY:", st.secrets["API_KEY"])
+
+
+# And the root-level secrets are also accessible as environment variables:
+
+import os
+
+st.write(
+    "Has environment variables been set:",
+    os.environ["API_KEY"] == st.secrets["API_KEY"],
+)
+
+
+
+
+
+
 copy_this_ex = """select * from aave.liquidations limit 543"""
 
 st.code(copy_this_ex)
