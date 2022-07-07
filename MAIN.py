@@ -148,7 +148,22 @@ def ace():
 
             # df = df
                 # df = df.fillna('null')
+                def gen_report(df):
 
+                    pr = gen_profile_report(df, explorative=True)
+
+                    st.write(df)
+
+                    with st.expander("REPORT", expanded=True):
+                        st_profile_report(pr)
+
+
+                @st.cache(allow_output_mutation=True)
+                def gen_profile_report(df, *report_args, **report_kwargs):
+                    return df.profile_report(*report_args, **report_kwargs)
+                gen_report_click = st.checkbox("Generate report", False)
+                if gen_report_click:
+                    gen_report(df=df)
                 chart_type = st.selectbox("Chart type", ["line", "bar", "scatter"])
 
 
